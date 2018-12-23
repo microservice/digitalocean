@@ -1,0 +1,54 @@
+omg: 1
+info:
+    version: 0.1.0
+    title: Digitalocean
+    description: Allows interaction with the Digitalocean API
+    license:
+        name: MIT
+        url: https://opensource.org/licenses/MIT
+    contact:
+        name: Asyncy
+        url: https://asyncy.com
+        email: hello@asyncy.com
+actions:
+    droplet_new:
+        help: creates a new droplet
+        format:
+            command: ["droplet_new"]
+        arguments:
+            name:
+                type: string
+                required: true
+            region:
+                type: string
+                required: true
+            size:
+                type: string
+                required: true
+            image:
+                type: string
+                required: true
+    droplet:
+        help: get information about a droplet
+        format:
+            command: ["droplet"]
+        arguments:
+            id:
+                type: string
+                required: true
+            action:
+                type: string
+                required: true
+    list:
+        help: list items of the requested kind
+        format:
+            command: ["list"]
+        arguments:
+            item_type:
+                type: string
+                required: true
+environment:
+    access_token:
+        type: string
+        required: true
+        help: Digitalocean OAuth token
